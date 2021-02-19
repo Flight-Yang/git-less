@@ -17,6 +17,7 @@ module.exports = {
     },   
     module: {
         rules: [
+            ... base.module.rules,
             {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"] //如果用style文件就用这个

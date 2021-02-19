@@ -21,6 +21,7 @@ module.exports = {
     ],
     module: {
         rules: [
+            ... base.module.rules,
             {
                 test: /\.css$/i,
                 use: [           //用抽成文件就用这个

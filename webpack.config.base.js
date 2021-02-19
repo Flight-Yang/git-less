@@ -3,7 +3,7 @@ const path = require('path');
 
 //共有属性
 
-module.exports = { 
+module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'index.[contenthash].js'
@@ -13,6 +13,27 @@ module.exports = {
             title: '熊熊',
             template: 'src/assets/index.html'
         }),
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.less$/i,
+                loader: ['style-loader','css-loader','less-loader'],
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require('dart-sass')
+                        }
+                    }
+                ],
+            },
+        ],
+    },
 
 };
